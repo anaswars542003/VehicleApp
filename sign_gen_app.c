@@ -56,6 +56,13 @@ int main(int argc, char* argv[])
     msg_size = read_message(msg);
     gen_proof(q, p, sk, c, msg, msg_size, t, sig);
     encoded_msg_size = encode_message_and_sign(msg, msg_size, c,  sig);
+    printf("\n\nsignature: ");
+    for(int i = 0; i < 96; i++){
+        printf("%02x",(unsigned char)sig[i]);
+    }
+    n = verify_proof(q, p, c, msg, msg_size, t, sig);
+    n ? printf("TRUE") : printf("FALSE");
+
 
     epoint_free(c1);
    //epoint_free(c2);
