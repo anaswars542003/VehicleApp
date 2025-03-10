@@ -60,8 +60,10 @@ int main(int argc, char* argv[])
     for(int i = 0; i < 96; i++){
         printf("%02x",(unsigned char)sig[i]);
     }
-    n = verify_proof(q, p, c, msg, msg_size, t, sig);
-    n ? printf("TRUE") : printf("FALSE");
+    /*n = verify_proof(q, p, c, msg, msg_size, t, sig);
+    n ? printf("\nTRUE") : printf("\nFALSE");*/
+
+    
 
 
     epoint_free(c1);
