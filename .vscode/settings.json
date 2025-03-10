@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "sok.h": "c",
+        "encoder.h": "c",
+        "time.h": "c"
+    }
+}
