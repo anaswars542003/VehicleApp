@@ -10,11 +10,15 @@
 #define x_str  "6b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296"
 #define y_str  "4fe342e2fe1a7f9b8ee7eb4a7c0f9e162bce33576b315ececbb6406837bf51f5"
 #define n_str  "ffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551"
+#define COUNTER_FILE "sends/counter.txt"
+#define FILE_PREFIX "sends/data"
+
 
 void read_keys_init(big sk, char* c, epoint* c1, char* cid);
 size_t read_message(char* msg);
-size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid);
+size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data);
 void decode_example(uint8_t *encoded_data, size_t encoded_size);
+void send_enc_data(char* encoded_buffer,size_t encoded_msg_size);
 void print_hex(const uint8_t *data, size_t size) {
     for (size_t i = 0; i < size; i++) {
         printf("%02x", data[i]);
@@ -53,8 +57,9 @@ int main(int argc, char* argv[])
 
     big sk = mirvar(0);
     epoint* c1 = epoint_init();
-    unsigned char c[126];
+    unsigned char c[128];
     unsigned char cid[32];
+    unsigned char encoded_buffer[300];
     
     char msg[200];
     char encoded_msg[300];
@@ -70,7 +75,9 @@ int main(int argc, char* argv[])
     
     msg_size = read_message(msg);
     gen_proof(q, p, sk, c, msg, msg_size, t, sig);
-    encoded_msg_size = encode_message_and_sign(msg, msg_size, c,  sig,cid);
+    encoded_msg_size = encode_message_and_sign(msg, msg_size, c,  sig,cid, (uint8_t*)encoded_buffer);
+    send_enc_data(encoded_buffer, encoded_msg_size);
+
     printf("\n\nsignature: ");
     for(int i = 0; i < 65; i++){
 
@@ -80,9 +87,6 @@ int main(int argc, char* argv[])
     }
     n = verify_proof(q, p, c, msg, msg_size, t, sig);
     n ? printf("\nTRUE") : printf("\nFALSE");
-
-    
-
 
     epoint_free(c1);
    //epoint_free(c2);
@@ -127,11 +131,10 @@ size_t read_message(char* msg)
 }
 
 
-size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid){
+size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data){
     struct oer_send_data_send_data_t message;
     struct oer_send_data_send_data_t decoded_message;
-    uint8_t encoded_data[300];
-    size_t encoded_size;
+    size_t encoded_size = 300;
     ssize_t decoded_size;
 
     message.protocolVersion = 3;
@@ -140,7 +143,7 @@ size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t 
     memcpy(message.content.value.signedData.signer.buf, cid, 32);
     memcpy(message.content.value.signedData.signature.buf, sig, 65);
 
-    encoded_size = oer_send_data_send_data_encode(encoded_data, sizeof(encoded_data), &message);
+    encoded_size = oer_send_data_send_data_encode(encoded_data, encoded_size, &message);
     if(encoded_size < 0){
         printf("Error encoding SignedData message: %zd\n", encoded_size);
     }
@@ -149,69 +152,26 @@ size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t 
     print_hex(encoded_data, encoded_size);
     printf("Size of encoded message : %ld", encoded_size);
 
-    printf("Signature: \n");
-    for(int i = 0; i < 65; i++){
-        printf("%02x",(unsigned char)message.content.value.signedData.signature.buf[i]);
-    }
+    
 
-    decoded_size = oer_send_data_send_data_decode(&decoded_message, encoded_data, encoded_size);
-    int n ;
+    
 
-    printf("Signature encoded: \n");
-    for(int i = 0; i < 65; i++){
-        printf("%02x",(unsigned char)message.content.value.signedData.signature.buf[i]);
-    }
+    //decode_example(encoded_data, encoded_size);
 
-    printf("Signature decoded: \n");
-    for(int i = 0; i < 65; i++){
-        printf("%02x",(unsigned char)decoded_message.content.value.signedData.signature.buf[i]);
-    }
-
-    decode_example(encoded_data, encoded_size);
+    return encoded_size;
 }   
 
 
-
-
-void decode_example(uint8_t *encoded_data, size_t encoded_size) {
-    struct oer_send_data_send_data_t decoded_message;
-    ssize_t decoded_size;
-    
-    printf("\n=== Decoding Example ===\n");
-    
-    // Decode the message
-    decoded_size = oer_send_data_send_data_decode(&decoded_message, encoded_data, encoded_size);
-    
-    if (decoded_size < 0) {
-        printf("Error decoding message: %zd\n", decoded_size);
-        return;
-    }
-    
-    printf("Successfully decoded message (%zd bytes):\n", decoded_size);
-    printf("Protocol Version: %d\n", decoded_message.protocolVersion);
-    
-    if (decoded_message.content.choice == oer_send_data_content_choice_signedData_e) {
-        printf("Content Type: SignedData\n");
-        
-        printf("Data (first 16 bytes): ");
-        printf("%s\n",decoded_message.content.value.signedData.data.buf);
-        
-        printf("Signer:\n");
-        print_hex(decoded_message.content.value.signedData.signer.buf, 32);
-        
-        printf("Signature z: \n");
-        print_hex(decoded_message.content.value.signedData.signature.buf, 32);
-        printf("Signature Rx: \n");
-        print_hex(decoded_message.content.value.signedData.signature.buf+32, 32);
-        printf("Signature odd_or_even: \n");
-        print_hex(decoded_message.content.value.signedData.signature.buf+64, 1);
-
-    } else {
-        printf("Content Type: SignedCertificateRequest\n");
-        
-        printf("Certificate Request: ");
-        print_hex(decoded_message.content.value.signedCertificateRequest.buf, 32);
-    }
-
-
+void send_enc_data(char* encoded_buffer,size_t encoded_msg_size){
+    FILE* fcounter = fopen("sends/counter","r");
+    int index;
+    fscanf(fcounter, "%d",&index);
+    fclose(fcounter);
+    fcounter = fopen("sends/counter","w");
+    fprintf(fcounter, "%d", index+1);
+    fclose(fcounter);
+    char filename[200];
+    snprintf(filename, sizeof(filename), "%s%d" ,FILE_PREFIX, index);
+    fcounter = fopen(filename, "wb");
+    fwrite(encoded_buffer, encoded_msg_size, 1, fcounter);
 }
