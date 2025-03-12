@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-03-09 12:10:50 by Eclipse SUMO netconvert Version v1_21_0+1920-92e75aa0ef4
+<netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <type-files value="/home/azura/Desktop/sumo/sumo/tools/../data/typemap/osmNetconvert.typ.xml,/home/azura/Desktop/sumo/sumo/tools/../data/typemap/osmNetconvertAerialway.typ.xml"/>
+        <osm-files value="osm_bbox.osm.xml.gz"/>
+    </input>
+
+    <output>
+        <output-file value="osm.net.xml.gz"/>
+        <output.street-names value="true"/>
+        <output.original-names value="true"/>
+        <ptstop-output value="osm_stops.add.xml"/>
+        <ptline-output value="osm_ptlines.xml"/>
+    </output>
+
+    <projection>
+        <proj.utm value="true"/>
+    </projection>
+
+    <processing>
+        <geometry.remove value="true"/>
+        <roundabouts.guess value="true"/>
+    </processing>
+
+    <tls_building>
+        <tls.discard-simple value="true"/>
+        <tls.join value="true"/>
+        <tls.guess-signals value="true"/>
+        <tls.default-type value="actuated"/>
+    </tls_building>
+
+    <ramp_guessing>
+        <ramps.guess value="true"/>
+    </ramp_guessing>
+
+    <junctions>
+        <junctions.join value="true"/>
+        <junctions.corner-detail value="5"/>
+    </junctions>
+
+    <railway>
+        <railway.topology.repair value="true"/>
+    </railway>
+
+</netconvertConfiguration>
+-->
+
+<ptLines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/ptlines_file.xsd">
+    <ptLine id="10718314" name="Flixbus 1385: Olsztyn, dworzec główny =&gt; Berlin ZOB" line="1385" type="bus" vClass="bus" completeness="0.06" missingBefore="15" missingAfter="2">
+        <route edges="1133992718#1 940016786#1 940016786#2 940016786#3 940016786#4 940016786#5 940016786#7 940016786#8 24243530#2 24243530#3 24243530#4 24243530#5 24243530#6 24243530#7 24243530#9 24243530#10 24243530#11 24243530#13 24243530#15 598692947#0 598692947#1 598692947#2 1364759420#0 26652030#1 1104460750 1104460751#1 1101404262#1 24914141#1 24914141#2 24914141#4 24914141#5 24914141#8 318282850#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10718315" name="Flixbus 1385: Berlin ZOB =&gt; Olsztyn, dworzec główny" line="1385" type="bus" vClass="bus" completeness="0.05" missingBefore="1" missingAfter="17">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 1105526112#1 112128418#2 112128418#4 457031289 1020548406 4484427#0 4484427#1 1344278031#1 1096709571#1 1138687769 24968394#0 24968394#1 24968394#2 24968394#3 24968394#4 24968394#5 24968394#6 24968394#7 24968394#9 1138687770#3 1138687770#4 1138687770#5 1138687770#6 1138687770#8 1138687770#9 1138687770#10 1096709564#1 1096709564#2 1096709564#3 1096709564#4 1096709564#5 1133992721#1 940056668#0 940056668#1 940056668#2 940056668#4 940056668#5 940056668#7 940056668#8 1133992717#3"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10744515" name="Flixbus N232 (part GER, CS): Praha, ÚAN Florenc =&gt; Rostock, Fährhafen" line="N232" type="bus" vClass="bus" completeness="0.10" missingBefore="4" missingAfter="5">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10744516" name="Flixbus N232 (part GER, CZ): Rostock, Fährhafen =&gt; Praha, ÚAN Florenc" line="N232" type="bus" vClass="bus" completeness="0.10" missingBefore="4" missingAfter="5">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10753790" name="Flixbus 370: Berlin, Alexanderplatz =&gt; Chemnitz, Busbahnhof" line="370" type="bus" vClass="bus" completeness="0.17" missingAfter="5">
+        <route edges="728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10753791" name="Flixbus 370: Chemnitz, Busbahnhof =&gt; Berlin, Alexanderplatz" line="370" type="bus" vClass="bus" completeness="0.20" missingBefore="3" missingAfter="1">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10754191" name="Flixbus 170: Göhren, Rügen =&gt; Dresden, Hbf. Bayrische Straße" line="170" type="bus" vClass="bus" completeness="0.08" missingBefore="8" missingAfter="3">
+        <route edges="1133992718#1 940016786#1 940016786#2 940016786#3 940016786#4 940016786#5 940016786#7 940016786#8 24243530#2 24243530#3 24243530#4 24243530#5 24243530#6 24243530#7 24243530#9 24243530#10 24243530#11 24243530#13 24243530#15 598692947#0 598692947#1 598692947#2 1364759420#0 26652030#1 1104460750 1104460751#1 1101404262#1 24914141#1 24914141#2 24914141#4 24914141#5 24914141#8 318282850#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10754192" name="Flixbus 170: Dresden, Hbf. Bayrische Straße =&gt; Göhren, Rügen" line="170" type="bus" vClass="bus" completeness="0.06" missingBefore="4" missingAfter="11">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 1105526112#1 112128418#2 112128418#4 457031289 1020548406 4484427#0 4484427#1 1344278031#1 1096709571#1 1138687769 24968394#0 24968394#1 24968394#2 24968394#3 24968394#4 24968394#5 24968394#6 24968394#7 24968394#9 1138687770#3 1138687770#4 1138687770#5 1138687770#6 1138687770#8 1138687770#9 1138687770#10 1096709564#1 1096709564#2 1096709564#3 1096709564#4 1096709564#5 1133992721#1 940056668#0 940056668#1 940056668#2 940056668#4 940056668#5 940056668#7 940056668#8 1133992717#3"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10754340" name="Flixbus N1385: Olsztyn, dworzec główny =&gt; Berlin ZOB" line="N1385" type="bus" vClass="bus" completeness="0.08" missingBefore="10" missingAfter="2">
+        <route edges="1133992718#1 940016786#1 940016786#2 940016786#3 940016786#4 940016786#5 940016786#7 940016786#8 24243530#2 24243530#3 24243530#4 24243530#5 24243530#6 24243530#7 24243530#9 24243530#10 24243530#11 24243530#13 24243530#15 598692947#0 598692947#1 598692947#2 1364759420#0 26652030#1 1104460750 1104460751#1 1101404262#1 24914141#1 24914141#2 24914141#4 24914141#5 24914141#8 318282850#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10754341" name="Flixbus N1385: Berlin ZOB =&gt; Olsztyn, dworzec główny" line="N1385" type="bus" vClass="bus" completeness="0.08" missingBefore="1" missingAfter="11">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 1105526112#1 112128418#2 112128418#4 457031289 1020548406 4484427#0 4484427#1 1344278031#1 1096709571#1 1138687769 24968394#0 24968394#1 24968394#2 24968394#3 24968394#4 24968394#5 24968394#6 24968394#7 24968394#9 1138687770#3 1138687770#4 1138687770#5 1138687770#6 1138687770#8 1138687770#9 1138687770#10 1096709564#1 1096709564#2 1096709564#3 1096709564#4 1096709564#5 1133992721#1 940056668#0 940056668#1 940056668#2 940056668#4 940056668#5 940056668#7 940056668#8 1133992717#3"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10761716" name="Flixbus 065: Berlin, Alexanderplatz =&gt; Leipzig, Hbf." line="065" type="bus" vClass="bus" completeness="0.20" missingAfter="4">
+        <route edges="728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 1133761676#1"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10761717" name="Flixbus 065: Leipzig, Hbf. =&gt; Berlin, Alexanderplatz" line="065" type="bus" vClass="bus" completeness="0.20" missingBefore="3" missingAfter="1">
+        <route edges="47016365#1 301241483#4 728838409"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10761815" name="Flixbus 125: Leipzig, Hbf. =&gt; Göhren, Rügen" line="125" type="bus" vClass="bus" completeness="0.08" missingBefore="2" missingAfter="9">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 1105526112#1 112128418#2 112128418#4 457031289 1020548406 4484427#0 4484427#1 1344278031#1 1096709571#1 1138687769 24968394#0 24968394#1 24968394#2 24968394#3 24968394#4 24968394#5 24968394#6 24968394#7 24968394#9 1138687770#3 1138687770#4 1138687770#5 1138687770#6 1138687770#8 1138687770#9 1138687770#10 1096709564#1 1096709564#2 1096709564#3 1096709564#4 1096709564#5 1133992721#1 940056668#0 940056668#1 940056668#2 940056668#4 940056668#5 940056668#7 940056668#8 1133992717#3"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10761816" name="Flixbus 125: Göhren, Rügen =&gt; Leipzig, Hbf." line="125" type="bus" vClass="bus" completeness="0.08" missingBefore="9" missingAfter="3">
+        <route edges="1133992718#1 940016786#1 940016786#2 940016786#3 940016786#4 940016786#5 940016786#7 940016786#8 24243530#2 24243530#3 24243530#4 24243530#5 24243530#6 24243530#7 24243530#9 24243530#10 24243530#11 24243530#13 24243530#15 598692947#0 598692947#1 598692947#2 1364759420#0 26652030#1 1104460750 1104460751#1 1101404262#1 24914141#1 24914141#2 24914141#4 24914141#5 24914141#8 318282850#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10762030" name="Flixbus 002: Warnemünde, Strand =&gt; Leipzig, Hbf." line="002" type="bus" vClass="bus" completeness="0.14" missingBefore="4" missingAfter="2">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="10762031" name="Flixbus 002: Leipzig, Hbf. =&gt; Warnemünde, Strand" line="002" type="bus" vClass="bus" completeness="0.14" missingBefore="1" missingAfter="5">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="11721273" name="Flixbus N13: Berlin, Alexanderplatz =&gt; Saarbrücken, Fernbusbahnhof" line="N13" type="bus" vClass="bus" completeness="0.09" missingAfter="10">
+        <route edges="728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="11721274" name="Flixbus N13: Saarbrücken, Fernbusbahnhof =&gt; Berlin, Alexanderplatz" line="N13" type="bus" vClass="bus" completeness="0.09" missingBefore="9" missingAfter="1">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="1231708" name="Bus N60: S+U Alexanderplatz =&gt; Flughafen BER - Terminal 1-2" line="N60" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.04" missingAfter="46">
+        <route edges="112128419#2 415280722 195401013#2"/>
+        <busStop id="270727260" name="S+U Alexanderplatz/Memhardstraße"/>
+        <busStop id="4163212867" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="1900690" name="Bus 100: S+U Alexanderplatz =&gt; S+U Zoologischer Garten" line="100" type="bus" vClass="bus" color="149,39,110" completeness="0.12" missingAfter="15">
+        <route edges="112128419#2 415280722 195401013#2"/>
+        <busStop id="270727260" name="S+U Alexanderplatz/Memhardstraße"/>
+        <busStop id="4163212867" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="1900691" name="Bus 100: S+U Zoologischer Garten =&gt; S+U Alexanderplatz" line="100" type="bus" vClass="bus" color="149,39,110" completeness="0.06" missingBefore="17">
+        <route edges="24913524#0 195401006 1113401735#1"/>
+        <busStop id="768074068" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="1981931" name="Tram M2: Am Steinberg =&gt; S+U Alexanderplatz" line="M2" type="tram" vClass="tram" period="300" color="51,255,51" completeness="0.38" missingBefore="7" missingAfter="1">
+        <route edges="173149682#2 173149682#3 173149682#4 173149682#5 173149682#6 1052302090#1 1052302090#2 1052302090#3 1052302090#4 1052302090#8 1052302090#9 1052302090#11 1052302088 1053166661#0 1053166661#1 1053166661#2 1053166661#3 1053166661#4 1053166661#6 1053166661#7 331114772#1 331114772#2 1053166659#1 1053166659#6 1053166659#7 148452597#0 148452597#1 148452597#2 148452597#4 148452597#5"/>
+        <busStop id="1840238871" name="Marienburger Straße"/>
+        <busStop id="1840254052" name="Knaackstraße"/>
+        <busStop id="1840260314" name="Prenzlauer Allee/Metzer Straße"/>
+        <busStop id="1840309842" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="1840333892" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="1981932" name="Tram M2: Heinersdorf =&gt; S+U Alexanderplatz" line="M2" type="tram" vClass="tram" period="1200" color="51,255,51" completeness="0.28" missingBefore="12" missingAfter="1">
+        <route edges="173149682#2 173149682#3 173149682#4 173149682#5 173149682#6 1052302090#1 1052302090#2 1052302090#3 1052302090#4 1052302090#8 1052302090#9 1052302090#11 1052302088 1053166661#0 1053166661#1 1053166661#2 1053166661#3 1053166661#4 1053166661#6 1053166661#7 331114772#1 331114772#2 1053166659#1 1053166659#6 1053166659#7 148452597#0 148452597#1 148452597#2 148452597#4 148452597#5"/>
+        <busStop id="1840238871" name="Marienburger Straße"/>
+        <busStop id="1840254052" name="Knaackstraße"/>
+        <busStop id="1840260314" name="Prenzlauer Allee/Metzer Straße"/>
+        <busStop id="1840309842" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="1840333892" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="1981933" name="Tram M2: S+U Alexanderplatz =&gt; Am Steinberg" line="M2" type="tram" vClass="tram" period="300" color="51,255,51" completeness="0.31" missingBefore="1" missingAfter="8">
+        <route edges="148457212 148449390#2 4791000#0 4791000#1 4791000#6 4791000#7 1053166660#1 1053166660#2 86208412#1 86208412#3 86208412#4 86208412#5 86208412#6 86208412#7 86208412#8 86208412#9 94131369#0 94131369#2 94131369#3 94131369#7 94131369#8 94131369#9 94131369#10 94131369#11 1052302089#1 173190323#0 173190323#1 173190323#2 173190323#3"/>
+        <busStop id="30732068" name="S+U Alexanderplatz/Memhardstraße"/>
+        <busStop id="30732071" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="30733475" name="Prenzlauer Allee/Metzer Straße"/>
+        <busStop id="30733478" name="Knaackstraße"/>
+    </ptLine>
+    <ptLine id="1986097" name="Bus 200: Prenzlauer Berg, Michelangelostraße =&gt; S+U Zoologischer Garten" line="200" type="bus" vClass="bus" color="149,39,110" completeness="0.12" missingBefore="8" missingAfter="15">
+        <route edges="671026861#0 1133993556#0 4790838#1 304162878#1 187091991 890801131#1 232070355#0 300401898 1101404262#1 24914141#1 24914141#2 24914141#4 24914141#5 24914141#8 318282850#2 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="271327606" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="270720402" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="4163212867" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="1986098" name="Bus 200: S+U Zoologischer Garten =&gt; Prenzlauer Berg, Michelangelostraße" line="200" type="bus" vClass="bus" color="149,39,110" completeness="0.11" missingBefore="16" missingAfter="8">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 1105526112#1 112128418#2 112128418#4 457031289 1020548406 1101404246#1 177372522 295445243 296122995#0 296122995#1 4790839#1 311357732#1 311357732#2 189024466 1133993557 1133993573#1 -671026861#0"/>
+        <busStop id="768074068" name="S+U Alexanderplatz/Memhardstraße"/>
+        <busStop id="3254638244" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="3918673867" name="Mollstraße/Otto-Braun-Straße"/>
+    </ptLine>
+    <ptLine id="2012421" name="Tram M4: Falkenberg =&gt; S Hackescher Markt" line="M4" type="tram" vClass="tram" period="420" color="190,20,20" completeness="0.12" missingBefore="19" missingAfter="3">
+        <route edges="-122462010#2 -122462010#1 -122462010#0 1051378098#1 1051378098#3 1051378098#4 1051378098#5 1047244910#1 1047244910#2 1047244910#3 1047244910#4 1047244910#5 1047244910#6 1047244910#7 1047244910#8 150478184#0 150478184#1 150478184#2 150478184#3 150478184#4 150478184#5 25957881#0 25957881#1 1245947673 1245947674 317013528#1 317013528#4 1245947667#1 1245947667#2 1328606983#0 1328606983#1 1051100385#2 1051100385#3 1051100386 10597134#0 10597134#1 10597134#2 421641064"/>
+        <busStop id="1789130798" name="Am Friedrichshain"/>
+        <busStop id="30731507" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="1789092673" name="U Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="2012422" name="Tram M4: Hohenschönhausen, Zingster Straße =&gt; S Hackescher Markt" line="M4" type="tram" vClass="tram" period="420" color="190,20,20" completeness="0.12" missingBefore="18" missingAfter="3">
+        <route edges="-122462010#2 -122462010#1 -122462010#0 1051378098#1 1051378098#3 1051378098#4 1051378098#5 1047244910#1 1047244910#2 1047244910#3 1047244910#4 1047244910#5 1047244910#6 1047244910#7 1047244910#8 150478184#0 150478184#1 150478184#2 150478184#3 150478184#4 150478184#5 25957881#0 25957881#1 1245947673 1245947674 317013528#1 317013528#4 1245947667#1 1245947667#2 1328606983#0 1328606983#1 1051100385#2 1051100385#3 1051100386 10597134#0 10597134#1 10597134#2 421641064"/>
+        <busStop id="1789130798" name="Am Friedrichshain"/>
+        <busStop id="30731507" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="1789092673" name="U Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="2012423" name="Tram M4: S Hackescher Markt =&gt; Falkenberg" line="M4" type="tram" vClass="tram" color="190,20,20" completeness="0.12" missingBefore="3" missingAfter="19">
+        <route edges="22962554#0 150394036#0 150394036#1 1245947676#0 1245947676#1 1245947676#2 301733774#1 301733774#2 1245947668#0 1245947668#1 22962555#2 22962555#3 22962555#4 150178429 150178430#0 150178430#1 150178430#3 150178892#1 150178892#2 150178892#3 150178892#4 150178892#5 150178892#6 150178892#7 150178892#8 94351504#1 94351504#2 94351504#4 94351504#5 94351501#1"/>
+        <busStop id="30731497" name="U Alexanderplatz"/>
+        <busStop id="244486144" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="2201770565" name="Am Friedrichshain"/>
+    </ptLine>
+    <ptLine id="2012424" name="Tram M4: S Hackescher Markt =&gt; Hohenschönhausen, Zingster Straße" line="M4" type="tram" vClass="tram" period="420" color="190,20,20" completeness="0.12" missingBefore="3" missingAfter="18">
+        <route edges="22962554#0 150394036#0 150394036#1 1245947676#0 1245947676#1 1245947676#2 301733774#1 301733774#2 1245947668#0 1245947668#1 22962555#2 22962555#3 22962555#4 150178429 150178430#0 150178430#1 150178430#3 150178892#1 150178892#2 150178892#3 150178892#4 150178892#5 150178892#6 150178892#7 150178892#8 94351504#1 94351504#2 94351504#4 94351504#5 94351501#1"/>
+        <busStop id="30731497" name="U Alexanderplatz"/>
+        <busStop id="244486144" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="2201770565" name="Am Friedrichshain"/>
+    </ptLine>
+    <ptLine id="2014012" name="Tram M5: Hohenschönhausen, Zingster Straße =&gt; S+U Hauptbahnhof" line="M5" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.06" missingBefore="22" missingAfter="12">
+        <route edges="1044587219#0 1044587219#1 1044587219#2 1328606986 1328606984#0 1328606984#1 153454794#0 153454794#1 153454794#2 153454794#3 153454794#4 153454794#5 150478184#0 150478184#1 150478184#2 150478184#3 150478184#4 150478184#5 25957881#0 25957881#1 1245947673 1245947674 317013528#1 317013528#4 1245947667#1 1245947667#2 1328606983#0 1328606983#1 1051100385#2 1051100385#3 1051100386 10597134#0 10597134#1 10597134#2 421641064 30721657#1 30721657#2 1328606977#0 1328606977#1 1210499523#0 46140385 46140379#0 46140379#1 46140379#2 46140393 1328606975#0 1328606975#1 101699679#0 101699679#1 101699679#3"/>
+        <busStop id="1860777021" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="1789092673" name="U Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="2014013" name="Tram M5: S+U Hauptbahnhof =&gt; Hohenschönhausen, Zingster Straße" line="M5" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.06" missingBefore="10" missingAfter="22">
+        <route edges="101699676#0 101699676#1 101699676#2 101699676#3 101699676#4 101699676#5 101699676#6 101699676#7 101699676#8 101699676#9 30721656#0 30721656#1 30721656#2 30721656#3 30721656#4 421641065#1 421641065#2 1328606998 1053166657 30123145#1 30123145#2 30123145#3 22962554#0 150394036#0 150394036#1 1245947676#0 1245947676#1 1245947676#2 301733774#1 301733774#2 1245947668#0 1245947668#1 22962555#2 22962555#3 22962555#4 150178429 150190354 46517264#1 46517264#2 150178427#0 150178427#1 150178427#4 94351498 82758167#1 82758167#2"/>
+        <busStop id="30731497" name="U Alexanderplatz"/>
+        <busStop id="595038851" name="Mollstraße/Otto-Braun-Straße"/>
+    </ptLine>
+    <ptLine id="2014286" name="Tram 12: Weißensee, Pasedagplatz =&gt; Mitte, Am Kupfergraben" line="12" type="tram" vClass="tram" period="600" color="190,20,20" completeness="0.08" missingBefore="16" missingAfter="8">
+        <route edges="149398400#3 1049894527#1 1049894527#3 1049894527#4 1049894527#5 1049894527#6 1049894528#0 1049894528#1 1049894528#4 154284647#2 154284647#3 154284647#4 154284647#5"/>
+        <busStop id="2135441884" name="Zionskirchplatz"/>
+        <busStop id="3741491681" name="Brunnenstraße/Invalidenstraße"/>
+    </ptLine>
+    <ptLine id="2014287" name="Tram 12: Mitte, Am Kupfergraben =&gt; Weißensee, Pasedagplatz" line="12" type="tram" vClass="tram" period="600" color="190,20,20" completeness="0.04" missingBefore="8" missingAfter="17">
+        <route edges="104669628#0 104669628#1 104669628#2 104669628#3 143930340#1 143930340#3 143930340#4 143930340#5 -153537603#1 -153537603#0 -104669629#1 -104669629#0"/>
+        <busStop id="315735263" name="Zionskirchplatz"/>
+    </ptLine>
+    <ptLine id="2015440" name="Tram M8: Ahrensfelde/Stadtgrenze =&gt; S+U Hauptbahnhof" line="M8" type="tram" vClass="tram" period="600" color="255,102,51" completeness="0.10" missingBefore="27" missingAfter="8">
+        <route edges="1044587219#0 1044587219#1 1044587219#2 1328606985 154305219 154449601#1 154449601#2 154449601#3 154449601#4 154449601#5 94351499 153424809#1 1052302087#1 1052302087#2 1052302087#3 1052302087#4 1052302087#5 1052302087#6 1052302087#7 1052302087#8 1052302087#9 1053166649#1 153424812#1 1053166650#0 1053166650#1 1053166650#3 153427725#1 153427725#2 153427725#3 153427725#4 1049894532#1 1049894532#3 1049894532#4 1049894532#5 1049894532#6"/>
+        <busStop id="30731498" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="1631354284" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="1661140876" name="U Rosa-Luxemburg-Platz"/>
+        <busStop id="1662140222" name="U Rosenthaler Platz"/>
+    </ptLine>
+    <ptLine id="2015441" name="Tram M8: S+U Hauptbahnhof =&gt; Ahrensfelde/Stadtgrenze" line="M8" type="tram" vClass="tram" period="600" color="255,102,51" completeness="0.11" missingBefore="7" missingAfter="27">
+        <route edges="1049894531#0 1049894531#1 1049894531#4 1049894531#5 1049894531#6 1049894531#7 83146233#1 83146233#2 83146233#3 83146233#4 153424817#2 153424817#3 4790804#0 4790804#1 4790804#2 1053166648#1 150201972#1 150201972#2 150201972#3 150201972#4 150201972#5 150201972#6 150201972#7 150201972#8 1052302086 150201975#1 154305216#0 154305216#2 154305216#3 154305216#4 154305216#5 154305216#7 94351498 82758167#1 82758167#2"/>
+        <busStop id="3837028202" name="U Rosenthaler Platz"/>
+        <busStop id="30732016" name="U Rosa-Luxemburg-Platz"/>
+        <busStop id="1866509895" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="1862786356" name="Mollstraße/Otto-Braun-Straße"/>
+    </ptLine>
+    <ptLine id="2015944" name="S5: S Strausberg Nord =&gt; S Westkreuz" line="S5" type="light_rail" vClass="rail_urban" period="600" color="242,87,33" completeness="0.03" missingBefore="21" missingAfter="8">
+        <route edges="25946659#0 25946659#1 32590498#1 32590501#1 32590648 32590649#0 32590649#1 32590649#2 32590640#1 32590640#2"/>
+        <busStop id="1745157971" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2015959" name="S5: S Westkreuz =&gt; S Strausberg Nord" line="S5" type="light_rail" vClass="rail_urban" period="600" color="242,87,33" completeness="0.03" missingBefore="8" missingAfter="21">
+        <route edges="32590894 4471817#1 4471817#2 4471817#3 32590638#1 32590645 32590647#0 32590647#1 32590494#1 32590496#1 72984377#1"/>
+        <busStop id="27411240" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2017023" name="S7: S Ahrensfelde =&gt; S Potsdam Hauptbahnhof" line="S7" type="light_rail" vClass="rail_urban" period="600" color="128,112,183" completeness="0.03" missingBefore="14" missingAfter="14">
+        <route edges="25946659#0 25946659#1 32590498#1 32590501#1 32590648 32590649#0 32590649#1 32590649#2 32590640#1 32590640#2"/>
+        <busStop id="1745157971" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2017024" name="S7: S Potsdam Hauptbahnhof =&gt; S Ahrensfelde" line="S7" type="light_rail" vClass="rail_urban" period="600" color="128,112,183" completeness="0.03" missingBefore="14" missingAfter="14">
+        <route edges="32590894 4471817#1 4471817#2 4471817#3 32590638#1 32590645 32590647#0 32590647#1 32590494#1 32590496#1 72984377#1"/>
+        <busStop id="27411240" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2076228" name="Tram M1: Mitte, Am Kupfergraben =&gt; Niederschönhausen, Schillerstraße" line="M1" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.14" missingBefore="6" missingAfter="19">
+        <route edges="101699676#0 101699676#1 101699676#2 101699676#3 101699676#4 101699676#5 101699676#6 101699676#7 101699676#8 101699676#9 30721656#0 30721656#1 30721656#2 30721656#3 30721656#4 421641065#1 421641065#2 1328606998 28341062#0 28341062#1 1053166656#1 421641064 30721657#1 30721657#2 1328606977#0 1328606977#1 46140383#0 46140383#1 46140383#2 46140383#3 143931935#0 143931935#1 153537606#1 153537606#2 153537606#3 153537606#4 153537606#5 153537606#6 -153537612#1 -153537612#0 -143931933#7 -143931933#5 -143931933#4 -143931933#3 -143931933#0 -1049894530#10 -1049894530#7 -1049894530#6 -1049894530#5 -1049894530#4 -1049894530#3 -1049894530#2 -1049894530#1 -1049894530#0 -168253001#6 -168253001#5 -168253001#4 -168253001#1 -168253001#0 -153537603#1 -153537603#0 -104669629#1 -104669629#0"/>
+        <busStop id="1633759766" name="S Hackescher Markt"/>
+        <busStop id="1662153916" name="U Weinmeisterstraße/Gipsstraße"/>
+        <busStop id="-3837028203" name="U Rosenthaler Platz"/>
+        <busStop id="-315735263" name="Zionskirchplatz"/>
+    </ptLine>
+    <ptLine id="2076230" name="Tram M1: Mitte, Am Kupfergraben =&gt; Rosenthal Nord" line="M1" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.13" missingBefore="6" missingAfter="21">
+        <route edges="101699676#0 101699676#1 101699676#2 101699676#3 101699676#4 101699676#5 101699676#6 101699676#7 101699676#8 101699676#9 30721656#0 30721656#1 30721656#2 30721656#3 30721656#4 421641065#1 421641065#2 1328606998 28341062#0 28341062#1 1053166656#1 421641064 30721657#1 30721657#2 1328606977#0 1328606977#1 46140383#0 46140383#1 46140383#2 46140383#3 143931935#0 143931935#1 153537606#1 153537606#2 153537606#3 153537606#4 153537606#5 153537606#6 -153537612#1 -153537612#0 -143931933#7 -143931933#5 -143931933#4 -143931933#3 -143931933#0 -1049894530#10 -1049894530#7 -1049894530#6 -1049894530#5 -1049894530#4 -1049894530#3 -1049894530#2 -1049894530#1 -1049894530#0 -168253001#6 -168253001#5 -168253001#4 -168253001#1 -168253001#0 -153537603#1 -153537603#0 -104669629#1 -104669629#0"/>
+        <busStop id="1633759766" name="S Hackescher Markt"/>
+        <busStop id="1662153916" name="U Weinmeisterstraße/Gipsstraße"/>
+        <busStop id="-3837028203" name="U Rosenthaler Platz"/>
+        <busStop id="-315735263" name="Zionskirchplatz"/>
+    </ptLine>
+    <ptLine id="2076231" name="Tram M1: Niederschönhausen, Schillerstraße =&gt; Mitte, Am Kupfergraben" line="M1" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.10" missingBefore="19" missingAfter="7">
+        <route edges="149398400#3 1049894527#1 1049894527#3 1049894527#4 1049894527#5 1049894527#6 154165306#0 154165306#1 26757071#0 26757071#1 26757071#4 26757071#5 26757071#6 26757071#7 1049894529#1 1049894529#2 1049894529#3 1049894529#4 1049894529#5 1049894529#6 1049894529#7 1049894529#11 1053166655#3 153537614#3 153537614#4 153537614#7 153537614#8 153537614#10 153537614#11 153537614#12 153537614#13 153522303#0 153522303#1 153522303#3 46140393 1328606975#0 1328606975#1 101699679#0 101699679#1 101699679#3"/>
+        <busStop id="2135441884" name="Zionskirchplatz"/>
+        <busStop id="2135441881" name="U Rosenthaler Platz"/>
+        <busStop id="1668497956" name="S Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2076232" name="Tram M1: Rosenthal Nord =&gt; Mitte, Am Kupfergraben" line="M1" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.10" missingBefore="21" missingAfter="7">
+        <route edges="149398400#3 1049894527#1 1049894527#3 1049894527#4 1049894527#5 1049894527#6 154165306#0 154165306#1 26757071#0 26757071#1 26757071#4 26757071#5 26757071#6 26757071#7 1049894529#1 1049894529#2 1049894529#3 1049894529#4 1049894529#5 1049894529#6 1049894529#7 1049894529#11 1053166655#3 153537614#3 153537614#4 153537614#7 153537614#8 153537614#10 153537614#11 153537614#12 153537614#13 153522303#0 153522303#1 153522303#3 46140393 1328606975#0 1328606975#1 101699679#0 101699679#1 101699679#3"/>
+        <busStop id="2135441884" name="Zionskirchplatz"/>
+        <busStop id="2135441881" name="U Rosenthaler Platz"/>
+        <busStop id="1668497956" name="S Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2076353" name="Tram M6: Hellersdorf, Riesaer Straße =&gt; S Hackescher Markt" line="M6" type="tram" vClass="tram" period="600" color="190,20,20" completeness="0.05" missingBefore="34" missingAfter="3">
+        <route edges="1044587219#0 1044587219#1 1044587219#2 1328606986 1328606984#0 1328606984#1 153454794#0 153454794#1 153454794#2 153454794#3 153454794#4 153454794#5 150478184#0 150478184#1 150478184#2 150478184#3 150478184#4 150478184#5 25957881#0 25957881#1 1245947673 1245947674 317013528#1 317013528#4 1245947667#1 1245947667#2 1328606983#0 1328606983#1 1051100385#2 1051100385#3 1051100386 10597134#0 10597134#1 10597134#2 421641064"/>
+        <busStop id="1860777021" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="1789092673" name="U Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="2076355" name="Tram M6: S Hackescher Markt =&gt; Hellersdorf, Riesaer Straße" line="M6" type="tram" vClass="tram" period="600" color="190,20,20" completeness="0.05" missingBefore="3" missingAfter="34">
+        <route edges="22962554#0 150394036#0 150394036#1 1245947676#0 1245947676#1 1245947676#2 301733774#1 301733774#2 1245947668#0 1245947668#1 22962555#2 22962555#3 22962555#4 150178429 150190354 46517264#1 46517264#2 150178427#0 150178427#1 150178427#4 94351498 82758167#1 82758167#2"/>
+        <busStop id="30731497" name="U Alexanderplatz"/>
+        <busStop id="595038851" name="Mollstraße/Otto-Braun-Straße"/>
+    </ptLine>
+    <ptLine id="2194813" name="Bus N65: Rahnsdorf/Waldschänke =&gt; S+U Alexanderplatz" line="N65" type="bus" vClass="bus" nightService="only" completeness="0.03" missingBefore="58">
+        <route edges="47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2"/>
+        <busStop id="3907105049" name="U Alexanderplatz"/>
+        <busStop id="4163212867" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="2194814" name="Bus N65: S+U Alexanderplatz =&gt; Rahnsdorf/Waldschänke" line="N65" type="bus" vClass="bus" nightService="only" completeness="0.02" missingAfter="56">
+        <route edges="112128419#2 415280722 195401013#2"/>
+        <busStop id="4163212867" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="2202596" name="Bus 142: S Ostbahnhof =&gt; U Leopoldplatz" line="142" type="bus" vClass="bus" color="149,39,110" completeness="0.12" missingBefore="9" missingAfter="19">
+        <route edges="-1134090050 -111251391#2 1133993556#0 4790838#1 304162878#1 187091991 890801131#1 232070355#0 300401898 153689810#1 319339413 1105526086#0 1105526086#1 102983787#0 1101404342#1 312651884#1 312651884#2 312651884#4 312651884#5 312651884#6 312651884#7 312651884#8 312651884#9 312651886#2 -740848375 -320894149#2 -320894149#1 -320894149#0"/>
+        <busStop id="271327606" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="3918673868" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="3918673892" name="U Rosa-Luxemburg-Platz"/>
+        <busStop id="3918673894" name="U Rosenthaler Platz"/>
+    </ptLine>
+    <ptLine id="2202597" name="Bus 142: U Leopoldplatz =&gt; S Ostbahnhof" line="142" type="bus" vClass="bus" color="149,39,110" completeness="0.12" missingBefore="20" missingAfter="9">
+        <route edges="320894149#0 320894149#1 320894149#2 740848375 1101404966#1 312654701#0 312654701#1 312654701#5 312654705#2 312654706#1 312654706#2 312654706#3 1105526087 309300321#0 309300321#1 1101404246#1 177372522 295445243 296122995#0 296122995#1 4790839#1 311357732#1 311357732#2 189024466 1133993557 1133993573#1 111251391#1 1134090050"/>
+        <busStop id="3918673893" name="U Rosenthaler Platz"/>
+        <busStop id="3918673891" name="U Rosa-Luxemburg-Platz"/>
+        <busStop id="3254638244" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="3918673867" name="Mollstraße/Otto-Braun-Straße"/>
+    </ptLine>
+    <ptLine id="2206192" name="Bus N2: S+U Pankow =&gt; U Ruhleben" line="N2" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.07" missingBefore="8" missingAfter="35">
+        <route edges="25558788#0 25558788#1 31145654#1 31145656#2 1133761589#1 1098856589 24326506#3 24326506#5 1133761618#2 41926994 102984483#0 102984483#1 1101404336 312654705#2 109819106#1 369223457#0 369223457#1 1098856744 369223461#0 369223461#1 1098856742 369223458#2 369223458#3 1157111072#1 1115509343#1 1115509343#2 24993933#0 24993933#1 4613308#2 756306892 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="3965486278" name="U Senefelderplatz"/>
+        <busStop id="3918673889" name="U Rosa-Luxemburg-Platz"/>
+        <busStop id="5907113489" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="2211984" name="Bus N5: Hellersdorf, Riesaer Straße =&gt; S+U Hauptbahnhof" line="N5" type="bus" vClass="bus" period="1800" nightService="only" completeness="0.04" missingBefore="36" missingAfter="9">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="3907105049" name="U Alexanderplatz"/>
+        <busStop id="5907113489" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="2211985" name="Bus N5: S+U Hauptbahnhof =&gt; Hellersdorf, Riesaer Straße" line="N5" type="bus" vClass="bus" period="1800" nightService="only" completeness="0.04" missingBefore="9" missingAfter="34">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="768074068" name="S+U Alexanderplatz/Memhardstraße"/>
+        <busStop id="271670135" name="U Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="2343465" name="S3: S Erkner =&gt; S Spandau" line="S3" type="light_rail" vClass="rail_urban" color="5,90,153" completeness="0.03" missingBefore="15" missingAfter="14">
+        <route edges="25946659#0 25946659#1 32590498#1 32590501#1 32590648 32590649#0 32590649#1 32590649#2 32590640#1 32590640#2"/>
+        <busStop id="1745157971" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2343466" name="S3: S Spandau =&gt; S Erkner" line="S3" type="light_rail" vClass="rail_urban" color="5,90,153" completeness="0.03" missingBefore="14" missingAfter="15">
+        <route edges="32590894 4471817#1 4471817#2 4471817#3 32590638#1 32590645 32590647#0 32590647#1 32590494#1 32590496#1 72984377#1"/>
+        <busStop id="27411240" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2389945" name="S9: S Flughafen BER =&gt; S Spandau" line="S9" type="light_rail" vClass="rail_urban" period="1200" color="154,48,82" completeness="0.03" missingBefore="15" missingAfter="14">
+        <route edges="25946659#0 25946659#1 32590498#1 32590501#1 32590648 32590649#0 32590649#1 32590649#2 32590640#1 32590640#2"/>
+        <busStop id="1745157971" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2389946" name="S9: S Spandau =&gt; S Flughafen BER" line="S9" type="light_rail" vClass="rail_urban" period="1200" color="154,48,82" completeness="0.03" missingBefore="14" missingAfter="15">
+        <route edges="32590894 4471817#1 4471817#2 4471817#3 32590638#1 32590645 32590647#0 32590647#1 32590494#1 32590496#1 72984377#1"/>
+        <busStop id="27411240" name="Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="2441959" name="Bus N8: Märkisches Viertel, Wilhelmsruher Damm =&gt; S+U Hermannstraße" line="N8" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.06" missingBefore="34" missingAfter="14">
+        <route edges="-46138135#1 -46138135#0 -312645512#3 1101404963#1 46138134#2 1103300945#1 371927739#1 371927739#2 371927739#3 371927739#4 36892597#1 36892597#3 1103300964#2 11103418#3 23809678#1 23809678#2 23809678#4 23809678#5 23809678#6 23809678#7 23809678#8 1157231004#1 -19002363#5 -19002363#3 -19002363#2 -19002363#1 -19002363#0 -1179820254#0 -1179820253#0 -1179820019#0 4613292#0 4613308#2 756306892 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="5081436984" name="U Rosenthaler Platz"/>
+        <busStop id="7312391560" name="U Weinmeisterstraße/Gipsstraße"/>
+        <busStop id="4163212867" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="2441960" name="Bus N8: S+U Hermannstraße =&gt; Märkisches Viertel, Wilhelmsruher Damm" line="N8" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.02" missingBefore="15" missingAfter="35">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 19002403#1 19002403#2 523630409 19002357#1 1179820019#0 1179820253#0 1179820253#1 1179820254#3 19002363#1 19002363#2 19002363#3 19002363#4 -1103300964#2 -1103300964#0 -36892597#2 -1225924291#1 -371927739#3 -371927739#2 -371927739#1 -371927739#0 -46138134#2 4610364#1 312645512#2 1121001234 46138135#1"/>
+        <busStop id="2914927130" name="U Rosenthaler Platz"/>
+    </ptLine>
+    <ptLine id="2512806" name="Bus N40: S Karlshorst =&gt; S+U Hauptbahnhof" line="N40" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.02" missingBefore="28" missingAfter="15">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 19002403#1 19002403#2 523630409 19002357#1 1179820019#0 1179820253#0 1179820253#1 1179820254#3 19002363#1 19002363#2 19002363#3 19002363#4 -1103300964#2 -1103300964#0 -36892597#2 -1225924291#1 -371927739#3 -371927739#2 -371927739#1 -371927739#0 -46138134#2 4610364#1 312645512#2 1121001234 46138135#1"/>
+        <busStop id="2914927130" name="U Rosenthaler Platz"/>
+    </ptLine>
+    <ptLine id="2512807" name="Bus N40: S+U Hauptbahnhof =&gt; S Karlshorst" line="N40" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.08" missingBefore="6" missingAfter="28">
+        <route edges="-46138135#1 -46138135#0 -312645512#3 1101404963#1 46138134#2 1103300945#1 371927739#1 371927739#2 371927739#3 371927739#4 36892597#1 36892597#3 1103300964#2 11103418#3 23809678#1 23809678#2 23809678#4 23809678#5 23809678#6 23809678#7 23809678#8 1157231004#1 -19002363#5 -19002363#3 -19002363#2 -19002363#1 -19002363#0 -1179820254#0 -1179820253#0 -1179820019#0 4613292#0 4613308#2 756306892 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="5081436984" name="U Rosenthaler Platz"/>
+        <busStop id="7312391560" name="U Weinmeisterstraße/Gipsstraße"/>
+        <busStop id="5907113489" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="2669183" name="U2: S+U Pankow =&gt; U Ruhleben" line="U2" type="subway" vClass="subway" period="240" color="218,66,30" completeness="0.07" missingBefore="3" missingAfter="23">
+        <route edges="388432539 200422335#0 200422335#1"/>
+        <busStop id="2094266784" name="Senefelderplatz"/>
+        <busStop id="2094266782" name="Rosa-Luxemburg-Platz"/>
+    </ptLine>
+    <ptLine id="2669184" name="U2: U Ruhleben =&gt; S+U Pankow" line="U2" type="subway" vClass="subway" period="240" color="218,66,30" completeness="0.11" missingBefore="22" missingAfter="3">
+        <route edges="272795474 272795470#1 388432540"/>
+        <busStop id="2094266780" name="Alexanderplatz"/>
+        <busStop id="4961125734" name="Rosa-Luxemburg-Platz"/>
+        <busStop id="196758117" name="Senefelderplatz"/>
+    </ptLine>
+    <ptLine id="2679013" name="U8: S+U Hermannstraße =&gt; S+U Wittenau" line="U8" type="subway" vClass="subway" period="300" color="34,79,134" completeness="0.08" missingBefore="10" missingAfter="12">
+        <route edges="438860779"/>
+        <busStop id="4655287361" name="Weinmeisterstraße"/>
+        <busStop id="5227235607" name="Rosenthaler Platz"/>
+    </ptLine>
+    <ptLine id="2679014" name="U8: S+U Wittenau =&gt; S+U Hermannstraße" line="U8" type="subway" vClass="subway" period="300" color="34,79,134" completeness="0.08" missingBefore="12" missingAfter="10">
+        <route edges="381201610"/>
+        <busStop id="5227235608" name="Rosenthaler Platz"/>
+        <busStop id="4655287360" name="Weinmeisterstraße"/>
+    </ptLine>
+    <ptLine id="28270" name="Tram M2: S+U Alexanderplatz =&gt; Heinersdorf" line="M2" type="tram" vClass="tram" period="1200" color="51,255,51" completeness="0.22" missingBefore="1" missingAfter="13">
+        <route edges="148457212 148449390#2 4791000#0 4791000#1 4791000#6 4791000#7 1053166660#1 1053166660#2 86208412#1 86208412#3 86208412#4 86208412#5 86208412#6 86208412#7 86208412#8 86208412#9 94131369#0 94131369#2 94131369#3 94131369#7 94131369#8 94131369#9 94131369#10 94131369#11 1052302089#1 173190323#0 173190323#1 173190323#2 173190323#3"/>
+        <busStop id="30732068" name="S+U Alexanderplatz/Memhardstraße"/>
+        <busStop id="30732071" name="Mollstraße/Prenzlauer Allee"/>
+        <busStop id="30733475" name="Prenzlauer Allee/Metzer Straße"/>
+        <busStop id="30733478" name="Knaackstraße"/>
+    </ptLine>
+    <ptLine id="28286" name="Bus N2: U Ruhleben =&gt; S+U Pankow" line="N2" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.04" missingBefore="37" missingAfter="8">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 19002403#1 19002403#2 523630409 -24993933#2 -24993933#0 -1115509343#2 -1115509343#1 -1115509343#0 -369223458#3 -369223458#2 -369223458#0 369223460#1 369223460#2 -1098856744 -369223457#1 -369223457#0 369223459#0 42348713#1 -102984483#1 -102984483#0 -41926994 1094434971 4615362#0 4615362#1 4615362#2 238945930#1 238945930#2 43542800#1 1121505024#0 24326507#0 24326507#2 31145647#1 31145647#2"/>
+        <busStop id="3918673890" name="U Rosa-Luxemburg-Platz"/>
+        <busStop id="3965486277" name="U Senefelderplatz"/>
+    </ptLine>
+    <ptLine id="35040" name="Bus N60: Flughafen BER =&gt; S+U Alexanderplatz" line="N60" type="bus" vClass="bus" nightService="only" completeness="0.04" missingBefore="47">
+        <route edges="47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2"/>
+        <busStop id="3907105049" name="U Alexanderplatz"/>
+        <busStop id="270727260" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="5829219" name="Tram M5: Hohenschönhausen, Zingster Straße =&gt; S Hackescher Markt" line="M5" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.07" missingBefore="22" missingAfter="3">
+        <route edges="1044587219#0 1044587219#1 1044587219#2 1328606986 1328606984#0 1328606984#1 153454794#0 153454794#1 153454794#2 153454794#3 153454794#4 153454794#5 150478184#0 150478184#1 150478184#2 150478184#3 150478184#4 150478184#5 25957881#0 25957881#1 1245947673 1245947674 317013528#1 317013528#4 1245947667#1 1245947667#2 1328606983#0 1328606983#1 1051100385#2 1051100385#3 1051100386 10597134#0 10597134#1 10597134#2 421641064"/>
+        <busStop id="1860777021" name="Mollstraße/Otto-Braun-Straße"/>
+        <busStop id="1789092673" name="U Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="5829220" name="Tram M5: S Hackescher Markt =&gt; Hohenschönhausen, Zingster Straße" line="M5" type="tram" vClass="tram" period="1200" color="190,20,20" completeness="0.07" missingBefore="3" missingAfter="22">
+        <route edges="22962554#0 150394036#0 150394036#1 1245947676#0 1245947676#1 1245947676#2 301733774#1 301733774#2 1245947668#0 1245947668#1 22962555#2 22962555#3 22962555#4 150178429 150190354 46517264#1 46517264#2 150178427#0 150178427#1 150178427#4 94351498 82758167#1 82758167#2"/>
+        <busStop id="30731497" name="U Alexanderplatz"/>
+        <busStop id="595038851" name="Mollstraße/Otto-Braun-Straße"/>
+    </ptLine>
+    <ptLine id="6187328" name="Bus N42: S+U Alexanderplatz =&gt; S Südkreuz" line="N42" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.09" missingAfter="20">
+        <route edges="112128419#2 -1133992822#0 -1133992736#0 -1123151415#3 -1123151415#2 -1123151415#0 -24241797#0 19002357#1 1179820019#0 1179820253#0 1179820253#1 1179820254#3 19002363#1 19002363#2 19002363#3 19002363#4 84960597#1 84960597#2 83517332#1 316746323#3 743631784#0 370359204#1 370359204#3 77348147"/>
+        <busStop id="270719334" name="S+U Alexanderplatz/Memhardstraße"/>
+        <busStop id="3867910427" name="S Hackescher Markt"/>
+    </ptLine>
+    <ptLine id="6187329" name="Bus N42: S Südkreuz =&gt; S+U Alexanderplatz" line="N42" type="bus" vClass="bus" nightService="only" color="89,91,98" completeness="0.14" missingBefore="19">
+        <route edges="-77348147 -387892378 -370359204#1 -743631784#0 -316746323#4 46140376#0 46140376#1 46140376#2 -84960597#2 -84960597#1 11103418#3 23809678#1 23809678#2 23809678#4 23809678#5 23809678#6 23809678#7 23809678#8 1157231004#1 -19002363#5 -19002363#3 -19002363#2 -19002363#1 -19002363#0 -1179820254#0 -1179820253#0 -1179820019#0 4613292#0 4613308#2 756306892 112128419#1 112128419#2"/>
+        <busStop id="-3867910426" name="S Hackescher Markt"/>
+        <busStop id="3867910439" name="U Weinmeisterstraße"/>
+        <busStop id="270719334" name="S+U Alexanderplatz/Memhardstraße"/>
+    </ptLine>
+    <ptLine id="7187524" name="Flixbus N44: Berlin, Alexanderplatz =&gt; Amsterdam Sloterdijk" line="N44" type="bus" vClass="bus" completeness="0.05" missingAfter="19">
+        <route edges="728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="7187525" name="Flixbus N44: Amsterdam Sloterdijk =&gt; Berlin, Alexanderplatz" line="N44" type="bus" vClass="bus" completeness="0.05" missingBefore="17" missingAfter="1">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9510274" name="Flixbus N70: Hamburg ZOB =&gt; Praha, ÚAN Florenc" line="N70" type="bus" vClass="bus" completeness="0.09" missingBefore="5" missingAfter="5">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9510275" name="Flixbus N70: Praha, ÚAN Florenc =&gt; Hamburg ZOB" line="N70" type="bus" vClass="bus" completeness="0.09" missingBefore="4" missingAfter="6">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9515445" name="Flixbus 070: Hamburg ZOB =&gt; Dresden, Hbf. Bayrische Straße" line="070" type="bus" vClass="bus" completeness="0.05" missingBefore="16" missingAfter="4">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9515446" name="Flixbus 070: Dresden, Hbf. Bayrische Straße =&gt; Hamburg ZOB" line="070" type="bus" vClass="bus" completeness="0.05" missingBefore="2" missingAfter="17">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9518252" name="Flixbus 270: Dresden, Hbf. Bayrische Straße =&gt; Warnemünde, Strand" line="270" type="bus" vClass="bus" completeness="0.11" missingBefore="3" missingAfter="5">
+        <route edges="288585010#0 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9518253" name="Flixbus 270: Warnemünde, Strand =&gt; Dresden, Hbf. Bayrische Straße" line="270" type="bus" vClass="bus" completeness="0.11" missingBefore="4" missingAfter="4">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9523808" name="Flixbus 057: Szczecin, dworzec główny =&gt; Berlin ZOB" line="057" type="bus" vClass="bus" completeness="0.20" missingBefore="2" missingAfter="2">
+        <route edges="1133992718#1 940016786#1 940016786#2 940016786#3 940016786#4 940016786#5 940016786#7 940016786#8 24243530#2 24243530#3 24243530#4 24243530#5 24243530#6 24243530#7 24243530#9 24243530#10 24243530#11 24243530#13 24243530#15 598692947#0 598692947#1 598692947#2 1364759420#0 26652030#1 1104460750 1104460751#1 1101404262#1 24914141#1 24914141#2 24914141#4 24914141#5 24914141#8 318282850#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 112128419#1 112128419#2 415280722 195401013#2"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+    <ptLine id="9523809" name="Flixbus 057: Berlin ZOB =&gt; Szczecin, dworzec główny" line="057" type="bus" vClass="bus" completeness="0.20" missingBefore="1" missingAfter="3">
+        <route edges="24913524#0 195401006 1113401735#1 139877314#1 783042668 310357283#2 100405009#1 100405009#2 100405009#3 100405009#4 305093247#0 305093247#2 301610520#1 301733776 47016365#1 301241483#4 728838409 301241681#1 301241681#3 301241681#4 246052428 301167584#0 1105526112#1 112128418#2 112128418#4 457031289 1020548406 4484427#0 4484427#1 1344278031#1 1096709571#1 1138687769 24968394#0 24968394#1 24968394#2 24968394#3 24968394#4 24968394#5 24968394#6 24968394#7 24968394#9 1138687770#3 1138687770#4 1138687770#5 1138687770#6 1138687770#8 1138687770#9 1138687770#10 1096709564#1 1096709564#2 1096709564#3 1096709564#4 1096709564#5 1133992721#1 940056668#0 940056668#1 940056668#2 940056668#4 940056668#5 940056668#7 940056668#8 1133992717#3"/>
+        <busStop id="6828410667" name="Alexanderplatz"/>
+    </ptLine>
+</ptLines>
