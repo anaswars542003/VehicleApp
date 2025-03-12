@@ -164,7 +164,7 @@ size_t read_message(char* msg, int server_fd, int new_socket) {
 
     // Close the connection
    
-    return (size_t)valread;
+    return 120;
 }
 
 
