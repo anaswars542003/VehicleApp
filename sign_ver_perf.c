@@ -22,12 +22,10 @@
 
 
 void read_keys_init(big sk, char* c, epoint* c1, char* cid);
-size_t read_message(char* msg, int server_fd, int new_socket);
+size_t read_message(char* msg);
 size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data);
 void decode_example(uint8_t *encoded_data, size_t encoded_size);
 void send_enc_data(char* encoded_buffer,size_t encoded_msg_size);
-void setup_traci(int*, int*);
-void close_traci(int * server_fd, int * new_socket);
 
 
 void print_hex(const uint8_t *data, size_t size) {
@@ -82,32 +80,40 @@ int main(int argc, char* argv[])
     
     read_keys_init(sk, c, c1, cid);    //read apk and public key part c1
 
-    int server_fd, new_socket;
-    setup_traci(&server_fd, &new_socket);
     
+    clock_t start_s, end_s, start,end;
+    clock_t start_v, end_v;
+    double time_taken_s = 0.0;
+    double time_taken_v = 0.0;
     
-    msg_size = read_message(msg, server_fd, new_socket);
-    gen_proof(q, p, sk, c, msg, msg_size, t, sig);
-    encoded_msg_size = encode_message_and_sign(msg, msg_size, c,  sig,cid, (uint8_t*)encoded_buffer);
-    send_enc_data(encoded_buffer, encoded_msg_size);
-    
-
-    close_traci(&server_fd, &new_socket);
-
-    printf("\n\nsignature: ");
-    for(int i = 0; i < 65; i++){
-
-        if(i % 32 == 0)
-            printf("\n");
-        printf("%02x",(unsigned char)sig[i]);
+    start_s = clock();
+    for(int i = 0; i < 1000; i++){
+        msg_size = read_message(msg);
+        gen_proof(q, p, sk, c, msg, msg_size, t, sig);
     }
+    end_s = clock();
+
+    time_taken_s = (double)(end_s - start_s)/CLOCKS_PER_SEC; 
+
+
+    gen_proof(q, p, sk, c, msg, msg_size, t, sig);
+    start_s = clock();
+    for(int i = 0; i < 1000; i++){
+        verify_proof(q, p, c, msg, msg_size, t, sig);
+    }
+    end_s = clock();
+
+
+    time_taken_v = (double)(end_s - start_s)/CLOCKS_PER_SEC; 
+    printf("---------------------------\nTime taken for 1000 message signing 120 byte BSM messages : %lf\n---------------------------\n", time_taken_s);
+    printf("---------------------------\nTime taken for 1000 message verification 120 byte BSM messages : %lf \n---------------------------\n ", time_taken_v);
+    
     
     printf("Verified the message usign verify proof");
     n = verify_proof(q, p, c, msg, msg_size, t, sig);
     n ? printf("\nTRUE") : printf("\nFALSE");
 
     epoint_free(c1);
-   //epoint_free(c2);
     epoint_free(p);
     mirkill(sk);
     mirkill(a);
@@ -146,23 +152,16 @@ void read_keys_init(big sk, char* c, epoint* c1, char* cid)
 
 #define PORT 65432
 
-size_t read_message(char* msg, int server_fd, int new_socket) {
+size_t read_message(char* msg) {
     
-    ssize_t valread;
-    printf("Connection established, receiving data...\n");
+    ssize_t valread  = 120;
 
-    // Read the binary data into the msg buffer
-    valread = read(new_socket, msg, 200);
-    if (valread < 0) {
-        perror("Read failed");
-        close(new_socket);
-        close(server_fd);
-        exit(EXIT_FAILURE);
+    srand(time(NULL));
+
+    // Fill the buffer with random bytes (0-255)
+    for (int i = 0; i < 120; i++) {
+        msg[i] = rand() % 256;  // Generate a random byte
     }
-
-    printf("Data received: %ld bytes\n", valread);
-
-    // Close the connection
    
     return (size_t)valread;
 }

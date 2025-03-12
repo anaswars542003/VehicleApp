@@ -1,2 +1,2 @@
-gcc sign_gen_app.c -I./include sok.a  libmiracl.a oer.a -o sign_app.out 
+gcc sign_gen_app.c -I./include sok.a  libmiracl.a oer.a -o sign_app.out  -g
 ./sign_app.out
