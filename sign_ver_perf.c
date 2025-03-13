@@ -105,13 +105,11 @@ int main(int argc, char* argv[])
 
 
     time_taken_v = (double)(end_s - start_s)/CLOCKS_PER_SEC; 
-    printf("---------------------------\nTime taken for 1000 message signing 120 byte BSM messages : %lf\n---------------------------\n", time_taken_s);
-    printf("---------------------------\nTime taken for 1000 message verification 120 byte BSM messages : %lf \n---------------------------\n ", time_taken_v);
+    printf("---------------------------\nTime taken for 1000 message signing 120 byte BSM messages : %lf ms\n---------------------------\n", time_taken_s * 1000);
+    printf("---------------------------\nAverage signing time : %lf ms\n---------------------------\n",time_taken_s);
+    printf("---------------------------\nTime taken for 1000 message verification 120 byte BSM messages : %lf ms\n---------------------------\n ", time_taken_v * 1000);
+    printf("---------------------------\nAverage verification time : %lf ms\n---------------------------\n",time_taken_v);
     
-    
-    printf("Verified the message usign verify proof");
-    n = verify_proof(q, p, c, msg, msg_size, t, sig);
-    n ? printf("\nTRUE") : printf("\nFALSE");
 
     epoint_free(c1);
     epoint_free(p);
@@ -166,101 +164,3 @@ size_t read_message(char* msg) {
     return (size_t)valread;
 }
 
-
-size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data){
-    struct oer_send_data_send_data_t message;
-    struct oer_send_data_send_data_t decoded_message;
-    size_t encoded_size = 300;
-    ssize_t decoded_size;
-
-    message.protocolVersion = 3;
-    message.content.choice = oer_send_data_content_choice_signedData_e;
-    memcpy(message.content.value.signedData.data.buf, msg, msg_size);
-    memcpy(message.content.value.signedData.signer.buf, cid, 32);
-    memcpy(message.content.value.signedData.signature.buf, sig, 65);
-
-    encoded_size = oer_send_data_send_data_encode(encoded_data, encoded_size, &message);
-    if(encoded_size < 0){
-        printf("Error encoding SignedData message: %zd\n", encoded_size);
-    }
-
-    
-    print_hex(encoded_data, encoded_size);
-    printf("Size of encoded message : %ld", encoded_size);
-
-    
-
-    
-
-    //decode_example(encoded_data, encoded_size);
-
-    return encoded_size;
-}   
-
-
-void send_enc_data(char* encoded_buffer,size_t encoded_msg_size){
-    FILE* fcounter = fopen("sends/counter","r");
-    int index;
-    fscanf(fcounter, "%d",&index);
-    fclose(fcounter);
-    fcounter = fopen("sends/counter","w");
-    fprintf(fcounter, "%d", index+1);
-    fclose(fcounter);
-    char filename[200];
-    snprintf(filename, sizeof(filename), "%s%d" ,FILE_PREFIX, index);
-    fcounter = fopen(filename, "wb");
-    fwrite(encoded_buffer, encoded_msg_size, 1, fcounter);
-}
-
-void setup_traci(int* server_fd, int* new_socket){
-    struct sockaddr_in address;
-    int opt = 1;
-    int addrlen = sizeof(address);
-    
-
-    // Create socket file descriptor
-    if ((*server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
-        perror("Socket failed");
-        exit(EXIT_FAILURE);
-    }
-
-    // Attach socket to the port
-    if (setsockopt(*server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
-        perror("setsockopt");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
-
-    // Bind the socket to the network address and port
-    if (bind(*server_fd, (struct sockaddr*)&address, sizeof(address)) < 0) {
-        perror("Bind failed");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-
-    // Start listening for incoming connections
-    if (listen(*server_fd, 3) < 0) {
-        perror("Listen failed");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-
-    printf("Waiting for a connection...\n");
-
-    if ((*new_socket = accept(*server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0) {
-        perror("Accept failed");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-}
-
-void close_traci(int * server_fd, int * new_socket)
-{
-    close(*new_socket);
-    close(*server_fd);
-
-}

@@ -24,7 +24,6 @@
 void read_keys_init(big sk, char* c, epoint* c1, char* cid);
 size_t read_message(char* msg, int server_fd, int new_socket);
 size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data);
-void decode_example(uint8_t *encoded_data, size_t encoded_size);
 void send_enc_data(char* encoded_buffer,size_t encoded_msg_size);
 void setup_traci(int*, int*);
 void close_traci(int * server_fd, int * new_socket);
