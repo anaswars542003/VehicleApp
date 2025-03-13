@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2025-03-09 12:10:55.828935 by $Id: ptlines2flows.py v1_3_1+0313-ccb31df3eb jakob.erdmann@dlr.de 2019-09-02 13:26:32 +0200 $ v1_21_0+1920-92e75aa0ef4
+<configuration>
+    <net-file value="/home/azura/Desktop/sumo/sumo/tools/2025-03-09-12-10-30/osm.net.xml.gz"/>
+    <ptlines-file value="/home/azura/Desktop/sumo/sumo/tools/2025-03-09-12-10-30/osm_ptlines.xml"/>
+    <ptstops-file value="/home/azura/Desktop/sumo/sumo/tools/2025-03-09-12-10-30/osm_stops.add.xml"/>
+    <output-file value="/home/azura/Desktop/sumo/sumo/tools/2025-03-09-12-10-30/osm_pt.rou.xml"/>
+    <stopinfos-file value="/home/azura/Desktop/sumo/sumo/tools/2025-03-09-12-10-30/stopinfos.xml"/>
+    <routes-file value="/home/azura/Desktop/sumo/sumo/tools/2025-03-09-12-10-30/vehroutes.xml"/>
+    <trips-file value="/home/azura/Desktop/sumo/sumo/tools/2025-03-09-12-10-30/trips.trips.xml"/>
+    <min-stops value="0"/>
+    <extend-to-fringe value="True"/>
+    <random-begin value="True"/>
+    <seed value="42"/>
+    <ignore-errors value="True"/>
+    <vtype-prefix value="pt_"/>
+    <verbose value="True"/>
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="pt_bus" vClass="bus" speedFactor="0.95"/>
+    <vType id="pt_tram" vClass="tram" speedFactor="1.0"/>
+    <vType id="pt_train" vClass="rail"/>
+    <vType id="pt_subway" vClass="subway"/>
+    <vType id="pt_light_rail" vClass="rail_urban"/>
+    <vType id="pt_monorail" vClass="rail_urban"/>
+    <vType id="pt_trolleybus" vClass="bus" speedFactor="0.95"/>
+    <vType id="pt_minibus" vClass="bus" speedFactor="0.95"/>
+    <vType id="pt_share_taxi" vClass="taxi" speedFactor="0.95"/>
+    <vType id="pt_aerialway" vClass="cable_car" length="2.5" width="2" personCapacity="4"/>
+    <vType id="pt_ferry" vClass="ship"/>
+    <trip id="0_bus_1385:0" type="pt_bus" depart="3.0" departLane="best" from="1133992718#1" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="1_bus_1385:1" type="pt_bus" depart="15.0" departLane="best" from="24913524#0" to="1133992717#3">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="2_bus_N232:0" type="pt_bus" depart="15.0" departLane="best" from="288585010#0" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="3_bus_N232:1" type="pt_bus" depart="17.0" departLane="best" from="24913524#0" to="301733776">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="4_bus_370:0" type="pt_bus" depart="19.0" departLane="best" from="728838409" to="301733776">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="5_bus_370:1" type="pt_bus" depart="27.0" departLane="best" from="288585010#0" to="728838409">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="6_bus_170:0" type="pt_bus" depart="47.0" departLane="best" from="1133992718#1" to="301733776">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="7_bus_170:1" type="pt_bus" depart="52.0" departLane="best" from="288585010#0" to="1133992717#3">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="8_bus_N1385:0" type="pt_bus" depart="55.0" departLane="best" from="1133992718#1" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="9_bus_N1385:1" type="pt_bus" depart="58.0" departLane="best" from="24913524#0" to="1133992717#3">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="10_bus_065:0" type="pt_bus" depart="60.0" departLane="best" from="728838409" to="1133761676#1">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="11_bus_065:1" type="pt_bus" depart="93.0" departLane="best" from="47016365#1" to="728838409">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="12_bus_125:0" type="pt_bus" depart="98.0" departLane="best" from="24913524#0" to="1133992717#3">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="13_bus_125:1" type="pt_bus" depart="102.0" departLane="best" from="1133992718#1" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="14_bus_002:0" type="pt_bus" depart="119.0" departLane="best" from="24913524#0" to="301733776">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="15_bus_002:1" type="pt_bus" depart="125.0" departLane="best" from="288585010#0" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="16_bus_N13:0" type="pt_bus" depart="126.0" departLane="best" from="728838409" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="17_bus_N13:1" type="pt_bus" depart="131.0" departLane="best" from="24913524#0" to="728838409">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="19_bus_100:0" type="pt_bus" depart="133.0" departLane="best" from="112128419#2" to="195401013#2">
+        <stop busStop="270727260" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+        <stop busStop="4163212867" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+    </trip>
+    <trip id="20_bus_100:1" type="pt_bus" depart="136.0" departLane="best" from="24913524#0" to="1113401735#1">
+        <stop busStop="768074068" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+    </trip>
+    <trip id="21_tram_M2:0" type="pt_tram" depart="137.0" departLane="best" from="173149682#2" to="148452597#5">
+        <stop busStop="1840238871" duration="30"/>  <!-- Marienburger Straße -->
+        <stop busStop="1840254052" duration="30"/>  <!-- Knaackstraße -->
+        <stop busStop="1840260314" duration="30"/>  <!-- Prenzlauer Allee/Metzer Straße -->
+        <stop busStop="1840309842" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="1840333892" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+    </trip>
+    <trip id="22_tram_M2:1" type="pt_tram" depart="139.0" departLane="best" from="173149682#2" to="148452597#5">
+        <stop busStop="1840238871" duration="30"/>  <!-- Marienburger Straße -->
+        <stop busStop="1840254052" duration="30"/>  <!-- Knaackstraße -->
+        <stop busStop="1840260314" duration="30"/>  <!-- Prenzlauer Allee/Metzer Straße -->
+        <stop busStop="1840309842" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="1840333892" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+    </trip>
+    <trip id="23_tram_M2:2" type="pt_tram" depart="147.0" departLane="best" from="148457212" to="173190323#3">
+        <stop busStop="30732068" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+        <stop busStop="30732071" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="30733475" duration="30"/>  <!-- Prenzlauer Allee/Metzer Straße -->
+        <stop busStop="30733478" duration="30"/>  <!-- Knaackstraße -->
+    </trip>
+    <trip id="24_bus_200:0" type="pt_bus" depart="157.0" departLane="best" from="671026861#0" to="195401013#2">
+        <stop busStop="271327606" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="270720402" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="4163212867" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+    </trip>
+    <trip id="25_bus_200:1" type="pt_bus" depart="158.0" departLane="best" from="24913524#0" to="-671026861#0">
+        <stop busStop="768074068" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+        <stop busStop="3254638244" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="3918673867" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+    </trip>
+    <trip id="26_tram_M4:0" type="pt_tram" depart="160.0" departLane="best" from="-122462010#2" to="421641064">
+        <stop busStop="1789130798" duration="30"/>  <!-- Am Friedrichshain -->
+        <stop busStop="30731507" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="1789092673" duration="30"/>  <!-- U Alexanderplatz -->
+    </trip>
+    <trip id="27_tram_M4:1" type="pt_tram" depart="160.0" departLane="best" from="-122462010#2" to="421641064">
+        <stop busStop="1789130798" duration="30"/>  <!-- Am Friedrichshain -->
+        <stop busStop="30731507" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="1789092673" duration="30"/>  <!-- U Alexanderplatz -->
+    </trip>
+    <trip id="28_tram_M4:2" type="pt_tram" depart="165.0" departLane="best" from="22962554#0" to="94351501#1">
+        <stop busStop="30731497" duration="30"/>  <!-- U Alexanderplatz -->
+        <stop busStop="244486144" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="2201770565" duration="30"/>  <!-- Am Friedrichshain -->
+    </trip>
+    <trip id="29_tram_M4:3" type="pt_tram" depart="166.0" departLane="best" from="22962554#0" to="94351501#1">
+        <stop busStop="30731497" duration="30"/>  <!-- U Alexanderplatz -->
+        <stop busStop="244486144" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="2201770565" duration="30"/>  <!-- Am Friedrichshain -->
+    </trip>
+    <trip id="30_tram_M5:0" type="pt_tram" depart="173.0" departLane="best" from="1044587219#0" to="101699679#3">
+        <stop busStop="1860777021" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="1789092673" duration="30"/>  <!-- U Alexanderplatz -->
+    </trip>
+    <trip id="31_tram_M5:1" type="pt_tram" depart="188.0" departLane="best" from="101699676#0" to="82758167#2">
+        <stop busStop="30731497" duration="30"/>  <!-- U Alexanderplatz -->
+        <stop busStop="595038851" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+    </trip>
+    <trip id="32_tram_12:0" type="pt_tram" depart="189.0" departLane="best" from="149398400#3" to="154284647#5">
+        <stop busStop="2135441884" duration="30"/>  <!-- Zionskirchplatz -->
+        <stop busStop="3741491681" duration="30"/>  <!-- Brunnenstraße/Invalidenstraße -->
+    </trip>
+    <trip id="33_tram_12:1" type="pt_tram" depart="201.0" departLane="best" from="104669629#2" to="104669629#2">
+        <stop busStop="315735263" duration="30"/>  <!-- Zionskirchplatz -->
+    </trip>
+    <trip id="34_tram_M8:0" type="pt_tram" depart="204.0" departLane="best" from="1044587219#0" to="1049894532#6">
+        <stop busStop="30731498" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="1631354284" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="1661140876" duration="30"/>  <!-- U Rosa-Luxemburg-Platz -->
+        <stop busStop="1662140222" duration="30"/>  <!-- U Rosenthaler Platz -->
+    </trip>
+    <trip id="35_tram_M8:1" type="pt_tram" depart="218.0" departLane="best" from="1049894531#0" to="82758167#2">
+        <stop busStop="3837028202" duration="30"/>  <!-- U Rosenthaler Platz -->
+        <stop busStop="30732016" duration="30"/>  <!-- U Rosa-Luxemburg-Platz -->
+        <stop busStop="1866509895" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="1862786356" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+    </trip>
+    <trip id="36_light_rail_S5:0" type="pt_light_rail" depart="222.0" departLane="best" from="25946659#0" to="32590640#2">
+        <stop busStop="1745157971" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="37_light_rail_S5:1" type="pt_light_rail" depart="227.0" departLane="best" from="32590894" to="72984377#1">
+        <stop busStop="27411240" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="38_light_rail_S7:0" type="pt_light_rail" depart="227.0" departLane="best" from="25946659#0" to="32590640#2">
+        <stop busStop="1745157971" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="39_light_rail_S7:1" type="pt_light_rail" depart="237.0" departLane="best" from="32590894" to="72984377#1">
+        <stop busStop="27411240" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="40_tram_M1:0" type="pt_tram" depart="253.0" departLane="best" from="101699676#0" to="-104669629#0">
+        <stop busStop="1633759766" duration="30"/>  <!-- S Hackescher Markt -->
+        <stop busStop="1662153916" duration="30"/>  <!-- U Weinmeisterstraße/Gipsstraße -->
+        <stop busStop="-3837028203" duration="30"/>  <!-- U Rosenthaler Platz -->
+        <stop busStop="-315735263" duration="30"/>  <!-- Zionskirchplatz -->
+    </trip>
+    <trip id="41_tram_M1:1" type="pt_tram" depart="275.0" departLane="best" from="101699676#0" to="-104669629#0">
+        <stop busStop="1633759766" duration="30"/>  <!-- S Hackescher Markt -->
+        <stop busStop="1662153916" duration="30"/>  <!-- U Weinmeisterstraße/Gipsstraße -->
+        <stop busStop="-3837028203" duration="30"/>  <!-- U Rosenthaler Platz -->
+        <stop busStop="-315735263" duration="30"/>  <!-- Zionskirchplatz -->
+    </trip>
+    <trip id="42_tram_M1:2" type="pt_tram" depart="303.0" departLane="best" from="149398400#3" to="101699679#3">
+        <stop busStop="2135441884" duration="30"/>  <!-- Zionskirchplatz -->
+        <stop busStop="2135441881" duration="30"/>  <!-- U Rosenthaler Platz -->
+        <stop busStop="1668497956" duration="30"/>  <!-- S Hackescher Markt -->
+    </trip>
+    <trip id="43_tram_M1:3" type="pt_tram" depart="321.0" departLane="best" from="149398400#3" to="101699679#3">
+        <stop busStop="2135441884" duration="30"/>  <!-- Zionskirchplatz -->
+        <stop busStop="2135441881" duration="30"/>  <!-- U Rosenthaler Platz -->
+        <stop busStop="1668497956" duration="30"/>  <!-- S Hackescher Markt -->
+    </trip>
+    <trip id="44_tram_M6:0" type="pt_tram" depart="326.0" departLane="best" from="1044587219#0" to="421641064">
+        <stop busStop="1860777021" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="1789092673" duration="30"/>  <!-- U Alexanderplatz -->
+    </trip>
+    <trip id="45_tram_M6:1" type="pt_tram" depart="331.0" departLane="best" from="22962554#0" to="82758167#2">
+        <stop busStop="30731497" duration="30"/>  <!-- U Alexanderplatz -->
+        <stop busStop="595038851" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+    </trip>
+    <trip id="48_bus_142:0" type="pt_bus" depart="346.0" departLane="best" from="-1134090050" to="-320894149#0">
+        <stop busStop="271327606" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="3918673868" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="3918673892" duration="30"/>  <!-- U Rosa-Luxemburg-Platz -->
+        <stop busStop="3918673894" duration="30"/>  <!-- U Rosenthaler Platz -->
+    </trip>
+    <trip id="49_bus_142:1" type="pt_bus" depart="353.0" departLane="best" from="320894149#0" to="1134090050">
+        <stop busStop="3918673893" duration="30"/>  <!-- U Rosenthaler Platz -->
+        <stop busStop="3918673891" duration="30"/>  <!-- U Rosa-Luxemburg-Platz -->
+        <stop busStop="3254638244" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="3918673867" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+    </trip>
+    <trip id="53_light_rail_S3:0" type="pt_light_rail" depart="381.0" departLane="best" from="25946659#0" to="32590640#2">
+        <stop busStop="1745157971" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="54_light_rail_S3:1" type="pt_light_rail" depart="383.0" departLane="best" from="32590894" to="72984377#1">
+        <stop busStop="27411240" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="55_light_rail_S9:0" type="pt_light_rail" depart="383.0" departLane="best" from="25946659#0" to="32590640#2">
+        <stop busStop="1745157971" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="56_light_rail_S9:1" type="pt_light_rail" depart="388.0" departLane="best" from="32590894" to="72984377#1">
+        <stop busStop="27411240" duration="30"/>  <!-- Hackescher Markt -->
+    </trip>
+    <trip id="61_subway_U2:0" type="pt_subway" depart="418.0" departLane="best" from="388432539" to="200422335#1">
+        <stop busStop="2094266784" duration="30"/>  <!-- Senefelderplatz -->
+        <stop busStop="2094266782" duration="30"/>  <!-- Rosa-Luxemburg-Platz -->
+    </trip>
+    <trip id="62_subway_U2:1" type="pt_subway" depart="422.0" departLane="best" from="272795474" to="388432540">
+        <stop busStop="2094266780" duration="30"/>  <!-- Alexanderplatz -->
+        <stop busStop="4961125734" duration="30"/>  <!-- Rosa-Luxemburg-Platz -->
+        <stop busStop="196758117" duration="30"/>  <!-- Senefelderplatz -->
+    </trip>
+    <trip id="63_subway_U8:0" type="pt_subway" depart="437.0" departLane="best" from="438860779" to="438860779">
+        <stop busStop="4655287361" duration="30"/>  <!-- Weinmeisterstraße -->
+        <stop busStop="5227235607" duration="30"/>  <!-- Rosenthaler Platz -->
+    </trip>
+    <trip id="64_subway_U8:1" type="pt_subway" depart="437.0" departLane="best" from="381201610" to="381201610">
+        <stop busStop="5227235608" duration="30"/>  <!-- Rosenthaler Platz -->
+        <stop busStop="4655287360" duration="30"/>  <!-- Weinmeisterstraße -->
+    </trip>
+    <trip id="65_tram_M2:3" type="pt_tram" depart="441.0" departLane="best" from="148457212" to="173190323#3">
+        <stop busStop="30732068" duration="30"/>  <!-- S+U Alexanderplatz/Memhardstraße -->
+        <stop busStop="30732071" duration="30"/>  <!-- Mollstraße/Prenzlauer Allee -->
+        <stop busStop="30733475" duration="30"/>  <!-- Prenzlauer Allee/Metzer Straße -->
+        <stop busStop="30733478" duration="30"/>  <!-- Knaackstraße -->
+    </trip>
+    <trip id="68_tram_M5:2" type="pt_tram" depart="484.0" departLane="best" from="1044587219#0" to="421641064">
+        <stop busStop="1860777021" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+        <stop busStop="1789092673" duration="30"/>  <!-- U Alexanderplatz -->
+    </trip>
+    <trip id="69_tram_M5:3" type="pt_tram" depart="485.0" departLane="best" from="22962554#0" to="82758167#2">
+        <stop busStop="30731497" duration="30"/>  <!-- U Alexanderplatz -->
+        <stop busStop="595038851" duration="30"/>  <!-- Mollstraße/Otto-Braun-Straße -->
+    </trip>
+    <trip id="72_bus_N44:0" type="pt_bus" depart="508.0" departLane="best" from="728838409" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="73_bus_N44:1" type="pt_bus" depart="517.0" departLane="best" from="24913524#0" to="728838409">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="74_bus_N70:0" type="pt_bus" depart="525.0" departLane="best" from="24913524#0" to="301733776">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="75_bus_N70:1" type="pt_bus" depart="535.0" departLane="best" from="288585010#0" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="76_bus_070:0" type="pt_bus" depart="548.0" departLane="best" from="24913524#0" to="301733776">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="77_bus_070:1" type="pt_bus" depart="561.0" departLane="best" from="288585010#0" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="78_bus_270:0" type="pt_bus" depart="565.0" departLane="best" from="288585010#0" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="79_bus_270:1" type="pt_bus" depart="574.0" departLane="best" from="24913524#0" to="301733776">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="80_bus_057:0" type="pt_bus" depart="583.0" departLane="best" from="1133992718#1" to="195401013#2">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+    <trip id="81_bus_057:1" type="pt_bus" depart="593.0" departLane="best" from="24913524#0" to="1133992717#3">
+        <stop busStop="6828410667" duration="30"/>  <!-- Alexanderplatz -->
+    </trip>
+</routes>
