@@ -1,4 +1,8 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <arpa/inet.h>
+#include <unistd.h>
 #include<string.h>
 #include<time.h>
 #include <stdio.h>
@@ -21,13 +25,8 @@
 #define FILE_PREFIX "sends/data"
 
 
-void read_keys_init(big sk, char* c, epoint* c1, char* cid);
-size_t read_message(char* msg, int server_fd, int new_socket);
-size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data);
-void send_enc_data(char* encoded_buffer,size_t encoded_msg_size);
-void setup_traci(int*, int*);
-void close_traci(int * server_fd, int * new_socket);
-
+#define SERVER_IP "127.0.0.1"
+#define SERVER_PORT 12345
 
 void print_hex(const uint8_t *data, size_t size) {
     for (size_t i = 0; i < size; i++) {
@@ -40,9 +39,46 @@ void print_hex(const uint8_t *data, size_t size) {
     printf("\n");
 }
 
+// Function to create and initialize a UDP socket
+void create_udp_socket(int *sock, struct sockaddr_in *server_addr) {
+    *sock = socket(AF_INET, SOCK_DGRAM, 0);
+    if (*sock < 0) {
+        perror("Socket creation failed");
+        exit(EXIT_FAILURE);
+    }
 
-int main(int argc, char* argv[])
-{
+    memset(server_addr, 0, sizeof(*server_addr));
+    server_addr->sin_family = AF_INET;
+    server_addr->sin_port = htons(SERVER_PORT);
+    server_addr->sin_addr.s_addr = inet_addr(SERVER_IP);
+}
+
+// Function to send a UDP message
+void udp_send(int sock, struct sockaddr_in *server_addr, unsigned char *message, size_t msg_size) {
+
+
+
+    if (sendto(sock, message, msg_size , 0, (struct sockaddr*)server_addr, sizeof(*server_addr)) < 0) {
+        perror("Send failed");
+        exit(EXIT_FAILURE);
+    }
+    printf("\n\nSent: message + signature\n");
+    print_hex(message, msg_size);
+}
+
+
+
+void read_keys_init(big sk, char* c, epoint* c1, char* cid);
+size_t read_message(char* msg);
+size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data);
+void send_enc_data(char* encoded_buffer,size_t encoded_msg_size);
+
+
+int main() {
+    int sock;
+    struct sockaddr_in server_addr;
+
+    create_udp_socket(&sock, &server_addr);
     miracl* mip = mirsys(100,16);
     mip->IOBASE = 16;
 
@@ -72,7 +108,6 @@ int main(int argc, char* argv[])
     unsigned char encoded_buffer[300];
     
     char msg[200];
-    char encoded_msg[300];
     size_t msg_size;
     size_t encoded_msg_size;
     int t = 0;
@@ -80,19 +115,9 @@ int main(int argc, char* argv[])
     //use a file with sk,c1_x,c1_y,c2_x,c2_y,cid stored in continuos byte stream. (read using "rb")
     
     read_keys_init(sk, c, c1, cid);    //read apk and public key part c1
-
-    int server_fd, new_socket;
-    setup_traci(&server_fd, &new_socket);
-    
-    
-    msg_size = read_message(msg, server_fd, new_socket);
+    msg_size = read_message(msg);
     gen_proof(q, p, sk, c, msg, msg_size, t, sig);
     encoded_msg_size = encode_message_and_sign(msg, msg_size, c,  sig,cid, (uint8_t*)encoded_buffer);
-    send_enc_data(encoded_buffer, encoded_msg_size);
-    
-
-    close_traci(&server_fd, &new_socket);
-
     printf("\n\nsignature: ");
     for(int i = 0; i < 65; i++){
 
@@ -101,24 +126,14 @@ int main(int argc, char* argv[])
         printf("%02x",(unsigned char)sig[i]);
     }
 
-    printf("\n\nOER encoded data send : \n");
-    print_hex(encoded_buffer, encoded_msg_size);
 
-    epoint_free(c1);
-   //epoint_free(c2);
-    epoint_free(p);
-    mirkill(sk);
-    mirkill(a);
-    mirkill(b);
-    mirkill(q);
-    mirexit();
+
+
+    udp_send(sock, &server_addr, encoded_buffer, encoded_msg_size);
+    
+    close(sock);
     return 0;
-
-
 }
-
-
-
 
 void read_keys_init(big sk, char* c, epoint* c1, char* cid)
 {
@@ -140,32 +155,22 @@ void read_keys_init(big sk, char* c, epoint* c1, char* cid)
 }
 
 
-
-
-#define PORT 65432
-
-size_t read_message(char* msg, int server_fd, int new_socket) {
+size_t read_message(char* msg) {
     
-    ssize_t valread;
-    //printf("Connection established, receiving data...\n");
+    ssize_t valread  = 120;
 
-    // Read the binary data into the msg buffer
-    printf("received encoded BSM message....\n");
-    valread = read(new_socket, msg, 200);
-    if (valread < 0) {
-        perror("Read failed");
-        close(new_socket);
-        close(server_fd);
-        exit(EXIT_FAILURE);
+    srand(time(NULL));
+
+    // Fill the buffer with random bytes (0-255)
+    for (int i = 0; i < 120; i++) {
+        msg[i] = rand() % 256;  // Generate a random byte
     }
 
-    //printf("Data received: %ld bytes\n", valread);
+    printf("\nTransmitted message in hex : \n");
+    print_hex(msg,120); 
 
-    // Close the connection
-   
-    return 120;
+    return (size_t)valread;
 }
-
 
 size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data){
     struct oer_send_data_send_data_t message;
@@ -187,80 +192,7 @@ size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t 
     
     //print_hex(encoded_data, encoded_size);
     //printf("Size of encoded message : %ld", encoded_size);
-
-    
-
-    
-
     //decode_example(encoded_data, encoded_size);
 
     return encoded_size;
 }   
-
-
-void send_enc_data(char* encoded_buffer,size_t encoded_msg_size){
-    FILE* fcounter = fopen("sends/counter","r");
-    int index;
-    fscanf(fcounter, "%d",&index);
-    fclose(fcounter);
-    fcounter = fopen("sends/counter","w");
-    fprintf(fcounter, "%d", index+1);
-    fclose(fcounter);
-    char filename[200];
-    snprintf(filename, sizeof(filename), "%s%d" ,FILE_PREFIX, index);
-    fcounter = fopen(filename, "wb");
-    fwrite(encoded_buffer, encoded_msg_size, 1, fcounter);
-}
-
-void setup_traci(int* server_fd, int* new_socket){
-    struct sockaddr_in address;
-    int opt = 1;
-    int addrlen = sizeof(address);
-    
-
-    // Create socket file descriptor
-    if ((*server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
-        perror("Socket failed");
-        exit(EXIT_FAILURE);
-    }
-
-    // Attach socket to the port
-    if (setsockopt(*server_fd, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt, sizeof(opt))) {
-        perror("setsockopt");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
-
-    // Bind the socket to the network address and port
-    if (bind(*server_fd, (struct sockaddr*)&address, sizeof(address)) < 0) {
-        perror("Bind failed");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-
-    // Start listening for incoming connections
-    if (listen(*server_fd, 3) < 0) {
-        perror("Listen failed");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-
-    //printf("Waiting for a connection...\n");
-
-    if ((*new_socket = accept(*server_fd, (struct sockaddr*)&address, (socklen_t*)&addrlen)) < 0) {
-        perror("Accept failed");
-        close(*server_fd);
-        exit(EXIT_FAILURE);
-    }
-}
-
-void close_traci(int * server_fd, int * new_socket)
-{
-    close(*new_socket);
-    close(*server_fd);
-
-}

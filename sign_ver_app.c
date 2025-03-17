@@ -52,12 +52,12 @@ int main(int argc, char* argv[])
     int t = 0;
     
     char filename[200];
-    strcpy(filename,"sends/data0");
+    strcpy(filename,"sends/data3");
     recv_msg(encoded_msg, filename);
     msg_size = parse_msg(encoded_msg, msg, cid, sig);
 
 
-    printf("\n\nsignature: ");
+    /*printf("\n\nsignature: ");
     for(int i = 0; i < 65; i++){
         if(i % 32 == 0)
             printf("\n");
@@ -69,12 +69,14 @@ int main(int argc, char* argv[])
         if(i % 32 == 0)
             printf("\n");
         printf("%02x",(unsigned char)cid[i]);
-    }
+    }*/
 
     retriev_apk(cid, c);
     n = verify_proof(q, p, c, msg, msg_size, t, sig);
 
-    printf("\n------------------------------\nTRUE OR FALSE : %d", n);
+
+    printf("\nverified received message as  ");
+    n == 1 ? printf("True\n") : printf("False\n");
 
     epoint_free(p);
     mirkill(a);
