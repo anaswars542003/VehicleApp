@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 #include <arpa/inet.h>
 #include <unistd.h>
@@ -34,7 +35,7 @@ struct MemoryStruct {
 void create_udp_socket(int *sock, struct sockaddr_in *server_addr);
 void print_hex(const uint8_t *data, size_t size);
 size_t udp_receive(int sock, char* buffer) ;
-size_t parse_msg(char* encoded_msg,char* msg, char* c,signature_t sig);
+size_t parse_msg(char* encoded_msg,char* msg, char* c,signature_t sig, size_t encoded_msg_size, uint32_t *t);
 void retriev_apk(unsigned char* cid, unsigned char* c);
 static size_t WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp); 
 
@@ -64,7 +65,7 @@ int main() {
     unsigned char encoded_msg[300];
     size_t encoded_msg_size;
     signature_t sig;
-    int t = 0;
+    uint32_t t;
     int sock;
     struct sockaddr_in server_addr;
 
@@ -72,15 +73,18 @@ int main() {
 
     while(1){
         encoded_msg_size = udp_receive(sock, encoded_msg);
-        msg_size = parse_msg(encoded_msg, msg, cid, sig);
+        printf("\n\nencoded msg:\n");
+        print_hex(encoded_msg,encoded_msg_size);
+        printf("\n\n");
+        msg_size = parse_msg(encoded_msg, msg, cid, sig, encoded_msg_size, &t);
         printf("Message received from id : \n");
         print_hex(cid, 32);
         printf("Received message contents : \n");
         print_hex(msg, msg_size);
         retriev_apk(cid, c);
         n = verify_proof(q, p, c, msg, msg_size, t, sig);
-        printf("\nverified received message as  ");
-        n == 1 ? printf("True\n") : printf("False\n");
+        printf("\nReceived message ");
+        n == 1 ? printf("Authenticated \n") : printf("Rejected\n");
         printf("\n\n\n");
     }
 
@@ -135,14 +139,15 @@ size_t udp_receive(int sock, char* buffer) {
     
 }
 
-size_t parse_msg(char* encoded_msg,char* msg, char* cid,signature_t sig){
+size_t parse_msg(char* encoded_msg,char* msg, char* cid,signature_t sig, size_t encoded_msg_size, uint32_t* t){
     struct oer_send_data_send_data_t decoded_message;
     ssize_t decoded_size;
-    decoded_size = oer_send_data_send_data_decode(&decoded_message, encoded_msg, 219);
+    decoded_size = oer_send_data_send_data_decode(&decoded_message, encoded_msg, encoded_msg_size);
     
     memcpy(msg, decoded_message.content.value.signedData.data.buf, 120);
     memcpy(cid, decoded_message.content.value.signedData.signer.buf, 32);
     memcpy(sig,  decoded_message.content.value.signedData.signature.buf, 65);
+    *t = decoded_message.content.value.signedData.timestamp;
     return 120;
 }
 

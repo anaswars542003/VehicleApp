@@ -70,7 +70,7 @@ void udp_send(int sock, struct sockaddr_in *server_addr, unsigned char *message,
 
 void read_keys_init(big sk, char* c, epoint* c1, char* cid);
 size_t read_message(char* msg);
-size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data);
+size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data, uint32_t t);
 void send_enc_data(char* encoded_buffer,size_t encoded_msg_size);
 
 
@@ -110,14 +110,14 @@ int main() {
     char msg[200];
     size_t msg_size;
     size_t encoded_msg_size;
-    int t = 0;
+    time_t t = time(NULL);
     
     //use a file with sk,c1_x,c1_y,c2_x,c2_y,cid stored in continuos byte stream. (read using "rb")
     
     read_keys_init(sk, c, c1, cid);    //read apk and public key part c1
     msg_size = read_message(msg);
     gen_proof(q, p, sk, c, msg, msg_size, t, sig);
-    encoded_msg_size = encode_message_and_sign(msg, msg_size, c,  sig,cid, (uint8_t*)encoded_buffer);
+    encoded_msg_size = encode_message_and_sign(msg, msg_size, c,  sig,cid, (uint8_t*)encoded_buffer, t);
     printf("\n\nsignature: ");
     for(int i = 0; i < 65; i++){
 
@@ -125,9 +125,6 @@ int main() {
             printf("\n");
         printf("%02x",(unsigned char)sig[i]);
     }
-
-
-
 
     udp_send(sock, &server_addr, encoded_buffer, encoded_msg_size);
     
@@ -172,9 +169,8 @@ size_t read_message(char* msg) {
     return (size_t)valread;
 }
 
-size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data){
+size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t sig, char* cid, uint8_t* encoded_data, uint32_t t){
     struct oer_send_data_send_data_t message;
-    struct oer_send_data_send_data_t decoded_message;
     size_t encoded_size = 300;
     ssize_t decoded_size;
 
@@ -183,6 +179,10 @@ size_t encode_message_and_sign(char* msg, size_t msg_size, char* c, signature_t 
     memcpy(message.content.value.signedData.data.buf, msg, msg_size);
     memcpy(message.content.value.signedData.signer.buf, cid, 32);
     memcpy(message.content.value.signedData.signature.buf, sig, 65);
+
+    
+    message.content.value.signedData.timestamp = t;
+
 
     encoded_size = oer_send_data_send_data_encode(encoded_data, encoded_size, &message);
     if(encoded_size < 0){
